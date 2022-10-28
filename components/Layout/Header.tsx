@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
+import { getCookie, deleteCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
 const links: { name: string; url: string }[] = [
   {
@@ -20,10 +22,16 @@ const links: { name: string; url: string }[] = [
 
 const Header: React.FC = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);
+  const router = useRouter();
 
   const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowNavbar(!showNavbar);
+  };
+
+  const handleLogout = () => {
+    deleteCookie("user");
+    router.push("/");
   };
 
   return (
@@ -31,7 +39,7 @@ const Header: React.FC = () => {
       <header className="sticky top-0 z-50 bg-white">
         <div className="flex p-5 px-8 lg:items-center lg:px-12">
           <Link href="/">
-            <a className="text-3xl font-extrabold text-black">Lorem Ipsum</a>
+            <a className="text-3xl font-extrabold text-black">muse.</a>
           </Link>
           <button
             onClick={handleToggle}

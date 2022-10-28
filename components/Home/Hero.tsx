@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Button from "../Button";
+import { getCookie } from "cookies-next";
 
 const Hero = () => {
   return (

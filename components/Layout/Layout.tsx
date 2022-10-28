@@ -13,7 +13,7 @@ const Layout: React.FC<ILayoutProps> = ({ children, title }: ILayoutProps) => {
   return (
     <div>
       <Head>
-        <title>{title} | Exun</title>
+        <title>{title} | Muse</title>
         <meta name="description" content="Exun" />
       </Head>
       <Header />

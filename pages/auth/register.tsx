@@ -5,9 +5,17 @@ import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
 import axios from "axios";
+import type { NextPage } from "next";
+import { getCookie } from "cookies-next";
 
-const Register = () => {
+const Register: NextPage = () => {
   const router = useRouter();
+
+  React.useEffect(() => {
+    if (getCookie("user")) {
+      router.push("/");
+    }
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

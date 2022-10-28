@@ -16,7 +16,7 @@ module.exports = {
         main: "6px 6px 4px 0px #00000040",
       },
       fontFamily: {
-        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        sans: ["Outfit", ...defaultTheme.fontFamily.sans],
       },
     },
   },
