@@ -5,6 +5,7 @@ import Layout from "../../components/Layout/Layout";
 import prisma from "../../lib/prisma";
 import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
+import React from "react";
 
 const MarketplacePage: NextPage = ({ nfts }) => {
   const router = useRouter();
