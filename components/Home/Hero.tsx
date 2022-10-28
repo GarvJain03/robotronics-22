@@ -11,7 +11,7 @@ const Hero = ({ user }) => {
       <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
         <div className="mb-8 flex flex-row space-x-3"></div>
         <img
-          src="https://media.discordapp.net/attachments/869407124223053868/1035053157950169108/unknown.png"
+          src="https://media.discordapp.net/attachments/1035162754140622868/1035621778724245644/unknown.png"
           alt="float"
           className="w-32 mb-8"
         />
