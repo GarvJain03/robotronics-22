@@ -19,7 +19,7 @@ const MarketplacePage: NextPage = ({ nfts }) => {
     <Layout title="Marketplace">
       <div className="mx-auto flex flex-col items-center px-5 pt-24 pb-8 lg:px-24">
         <h1 className="text-black text-4xl font-semibold mb-8">Marketplace</h1>
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4 gap-4">
           {nfts.map((nft) => (
             <div className="bg-white rounded-lg shadow-main border-2 border-black p-4">
               <img src="/images/card.png" alt={nft.songTitle} />
