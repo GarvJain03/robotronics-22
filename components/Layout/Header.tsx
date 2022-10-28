@@ -26,7 +26,7 @@ const links: { name: string; url: string }[] = [
   },
 ];
 
-const Header: React.FC<{ user: User }> = ({ user }: { user: User }) => {
+const Header: React.FC = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);
   const router = useRouter();
 
@@ -82,13 +82,3 @@ const Header: React.FC<{ user: User }> = ({ user }: { user: User }) => {
 };
 
 export default Header;
-
-export const getServerSideProps = async (ctx) => {
-  const user = getCookie("user", ctx.req);
-
-  return {
-    props: {
-      user: JSON.parse(JSON.stringify(user)),
-    },
-  };
-};
