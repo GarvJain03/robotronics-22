@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         black: "#00160A",
-        neon: "#64FCD9",
+        neon: "#0B00A7",
       },
       boxShadow: {
         main: "6px 6px 4px 0px #00000040",
