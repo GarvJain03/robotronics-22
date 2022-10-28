@@ -16,13 +16,15 @@ const Hero = ({ user }) => {
           className="w-32 mb-8"
         />
         <h2 className="text-4xl font-medium text-primary-text sm:text-5xl mb-6">
-          Lorem Ipsum
+          Muse
         </h2>
         <p className="lg:text-justify font-light text-xl leading-8 text-black mb-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis
-          aperiam aspernatur nobis corrupti minus eum rem laudantium minima
-          nulla dolore ipsam voluptatibus quidem ratione rerum odit quisquam,
-          et, nostrum delectus.
+          As a music artist, a major part of being successful is popularising
+          your tunes. To help in this, our project Muse allows artists to upload
+          their songs on our platform where they are sold as visual
+          manifestations. We convert the lyrics of your songs into digital
+          trading cards that are sold in our marketplace. This will help in
+          boosting the music endeavours of various upcoming artists.
         </p>
         <div className="flex space-x-4">
           <Link href="/post">
