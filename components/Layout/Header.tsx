@@ -20,6 +20,10 @@ const links: { name: string; url: string }[] = [
     name: "sign in",
     url: "/auth/login",
   },
+  {
+    name: "marketplace",
+    url: "/marketplace",
+  },
 ];
 
 const Header: React.FC<{ user: User }> = ({ user }: { user: User }) => {
@@ -50,31 +54,15 @@ const Header: React.FC<{ user: User }> = ({ user }: { user: User }) => {
             {showNavbar ? <ImCross /> : <GiHamburgerMenu />}
           </button>
           <div className="hidden space-x-6 lg:ml-auto lg:flex lg:items-center">
-            {!user ? (
-              <>
-                <Link href="/marketplace">
-                  <p className="relative group cursor-pointer">
-                    <a className="text-xl font-medium text-black">
-                      marketplace
-                    </a>
-                    <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                    <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                  </p>
-                </Link>
-              </>
-            ) : (
-              links.map((link) => (
-                <Link key={link.name} href={link.url}>
-                  <p className="relative group cursor-pointer">
-                    <a className="text-xl font-medium text-black">
-                      {link.name}
-                    </a>
-                    <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                    <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                  </p>
-                </Link>
-              ))
-            )}
+            {links.map((link) => (
+              <Link key={link.name} href={link.url}>
+                <p className="relative group cursor-pointer">
+                  <a className="text-xl font-medium text-black">{link.name}</a>
+                  <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                  <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
         {showNavbar && (

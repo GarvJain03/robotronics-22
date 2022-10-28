@@ -25,19 +25,16 @@ const Hero = ({ user }) => {
           et, nostrum delectus.
         </p>
         <div className="flex space-x-4">
-          {!user ? (
-            <Link href="/post">
-              <a>
-                <Button text="Post NFT" />
-              </a>
-            </Link>
-          ) : (
-            <Link href="/auth/register">
-              <a>
-                <Button text="Get Started" />
-              </a>
-            </Link>
-          )}
+          <Link href="/post">
+            <a>
+              <Button text="Post NFT" />
+            </a>
+          </Link>
+          <Link href="/auth/register">
+            <a>
+              <Button text="Get Started" />
+            </a>
+          </Link>
         </div>
       </div>
       <div className="lg:max-w-lg lg:w-full md:w-full w-5/6">

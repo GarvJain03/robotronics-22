@@ -88,9 +88,9 @@ const Register: NextPage = () => {
             Register{" "}
           </button>{" "}
           <span className="mt-8 text-black font-normal">
-            No account?{" "}
-            <Link href="/auth/register">
-              <a className="underline">Register</a>
+            Have an account?{" "}
+            <Link href="/auth/login">
+              <a className="underline">Login</a>
             </Link>
           </span>
         </form>
