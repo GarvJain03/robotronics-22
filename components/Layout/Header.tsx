@@ -1,9 +1,11 @@
+// @ts-nocheck
 import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { getCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import type { User } from "@prisma/client";
 
 const links: { name: string; url: string }[] = [
   {
@@ -20,7 +22,7 @@ const links: { name: string; url: string }[] = [
   },
 ];
 
-const Header: React.FC = () => {
+const Header: React.FC<{ user: User }> = ({ user }: { user: User }) => {
   const [showNavbar, setShowNavbar] = React.useState(false);
   const router = useRouter();
 
@@ -48,15 +50,31 @@ const Header: React.FC = () => {
             {showNavbar ? <ImCross /> : <GiHamburgerMenu />}
           </button>
           <div className="hidden space-x-6 lg:ml-auto lg:flex lg:items-center">
-            {links.map((link) => (
-              <Link key={link.name} href={link.url}>
-                <p className="relative group cursor-pointer">
-                  <a className="text-xl font-medium text-black">{link.name}</a>
-                  <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                  <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
-                </p>
-              </Link>
-            ))}
+            {!user ? (
+              <>
+                <Link href="/marketplace">
+                  <p className="relative group cursor-pointer">
+                    <a className="text-xl font-medium text-black">
+                      marketplace
+                    </a>
+                    <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                    <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                  </p>
+                </Link>
+              </>
+            ) : (
+              links.map((link) => (
+                <Link key={link.name} href={link.url}>
+                  <p className="relative group cursor-pointer">
+                    <a className="text-xl font-medium text-black">
+                      {link.name}
+                    </a>
+                    <span className="absolute -bottom-1 left-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                    <span className="absolute -bottom-1 right-1/2 w-0 h-1 duration-500 bg-neon transition-all group-hover:w-1/2"></span>
+                  </p>
+                </Link>
+              ))
+            )}
           </div>
         </div>
         {showNavbar && (
@@ -76,3 +94,13 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+export const getServerSideProps = async (ctx) => {
+  const user = getCookie("user", ctx.req);
+
+  return {
+    props: {
+      user: JSON.parse(JSON.stringify(user)),
+    },
+  };
+};

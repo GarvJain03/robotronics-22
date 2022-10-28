@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+// @ts-nocheck
 import React from "react";
 import Link from "next/link";
 import Button from "../Button";
 import { getCookie } from "cookies-next";
 
-const Hero = () => {
+const Hero = ({ user }) => {
   return (
     <div className="mx-auto flex flex-col items-center px-5 pt-24 pb-8 md:flex-row lg:px-24">
       <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
@@ -24,11 +25,19 @@ const Hero = () => {
           et, nostrum delectus.
         </p>
         <div className="flex space-x-4">
-          <Link href="/auth/register">
-            <a>
-              <Button text="Get Started" />
-            </a>
-          </Link>
+          {!user ? (
+            <Link href="/post">
+              <a>
+                <Button text="Post NFT" />
+              </a>
+            </Link>
+          ) : (
+            <Link href="/auth/register">
+              <a>
+                <Button text="Get Started" />
+              </a>
+            </Link>
+          )}
         </div>
       </div>
       <div className="lg:max-w-lg lg:w-full md:w-full w-5/6">
@@ -43,3 +52,13 @@ const Hero = () => {
 };
 
 export default Hero;
+
+export const getServerSideProps = async (ctx) => {
+  const user = getCookie("user", ctx.req);
+
+  return {
+    props: {
+      user: JSON.parse(JSON.stringify(user)),
+    },
+  };
+};
