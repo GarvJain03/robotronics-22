@@ -3,3 +3,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.layered-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+    
+.layered-image:before {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(to bottom, transparent 70%, white);
+    opacity: 2.5; 
+    height: 100%;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+.main-heading {
+    text-shadow: 4px 3px 0px #000, 9px 8px 0px rgba(0,0,0,0.15);
+}

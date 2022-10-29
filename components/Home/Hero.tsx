@@ -7,26 +7,13 @@ import { getCookie } from "cookies-next";
 
 const Hero = () => {
   return (
-    <div className="mx-auto flex flex-col items-center px-5 pt-24 pb-8 md:flex-row lg:px-24">
-      <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
-        <div className="mb-8 flex flex-row space-x-3"></div>
-        <img
-          src="https://media.discordapp.net/attachments/1035162754140622868/1035621778724245644/unknown.png"
-          alt="float"
-          className="w-32 mb-8"
-        />
-        <h2 className="text-4xl font-medium text-primary-text sm:text-5xl mb-6">
-          Muse
-        </h2>
-        <p className="lg:text-justify font-light text-xl leading-8 text-black mb-6">
-          As a music artist, a major part of being successful is popularising
-          your tunes. To help in this, our project Muse allows artists to upload
-          their songs on our platform where they are sold as visual
-          manifestations. We convert the lyrics of your songs into digital
-          trading cards that are sold in our marketplace. This will help in
-          boosting the music endeavours of various upcoming artists.
-        </p>
-        <div className="flex space-x-4">
+    <>
+    <div className="h-full bg-[url('/images/hero.webp')] bg-no-repeat bg-cover bg-center mx-auto flex flex-col justify-center items-center p-24 pb-60 relative">
+      <h1 className="text-[82px] text-center font-bold text-white tracking-wide leading-snug z-10 main-heading">Enjoy The Best Music Marketplace.</h1>
+      <h5 className="w-[900px] text-[22px] text-dark pt-7 text-center z-10">
+          Browse through trillions of world-wide collection of songs for free
+      </h5>
+      <div className="flex space-x-12 pt-8 mb-60 z-10">
           <Link href="/post">
             <a>
               <Button text="Post NFT" />
@@ -38,15 +25,16 @@ const Hero = () => {
             </a>
           </Link>
         </div>
-      </div>
-      <div className="lg:max-w-lg lg:w-full md:w-full w-5/6">
-        <img
-          className="object-cover object-center rounded"
-          alt="hero"
-          src="/images/hero.svg"
-        />
-      </div>
+        <div className="layered-image z-0"></div>
     </div>
+    <div className="flex w-full justify-center items-center mt-[-350px] z-10 absolute">
+    <img
+          src="images/web-player.jpeg"
+          alt="float"
+          className="w-2/3 h-2/3 mb-8 rounded-xl"
+        />
+    </div>
+    </>
   );
 };
 
